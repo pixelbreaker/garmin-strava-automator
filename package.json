@@ -1,15 +1,15 @@
 {
-  "name": "strava-uploader",
-  "version": "0.0.0",
+  "name": "garmin-strava-automator",
+  "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "repository": "https://github.com/pixelbreaker/garmin-strava-automator.git",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "node-gyp": "~2.0.2",
+  "dependencies": {
     "node-usb-detection": "^1.0.2",
     "plist": "~1.1.0",
     "lodash": "~3.10.1",
