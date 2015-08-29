@@ -1,0 +1,14 @@
+{
+  "env": {
+  	"STRAVA_ACCESS_TOKEN": 		"Access Token",
+  	"STRAVA_CLIENT_SECRET": 	"",
+  	"STRAVA_CLIENT_ID": 			"",
+  	"STRAVA_REDIRECT_URI": 		"http://localhost"
+  },
+  "garmin": {
+    "idVendor": 2334,
+    "volumeName": "GARMIN",
+    "activityPath": "/Garmin/Activities/"
+  },
+  "dropboxPath": "~/Dropbox/Garmin Backups/"
+}

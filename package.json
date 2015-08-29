@@ -10,8 +10,13 @@
   "license": "ISC",
   "devDependencies": {
     "node-gyp": "~2.0.2",
-    "node-usb-detection": "~1.0.2",
+    "node-usb-detection": "^1.0.2",
     "plist": "~1.1.0",
-    "lodash": "~3.10.1"
+    "lodash": "~3.10.1",
+    "strava-v3": "^1.8.0",
+    "node-progress": "~0.1.0",
+    "colors": "~1.1.2",
+    "open": "0.0.5",
+    "prompt": "~0.2.14"
   }
 }
