@@ -12,8 +12,10 @@ backs up your activity files from your Garmin to your chosen location (I
   limited memory.
 
 ### Installation
-Clone this repository to your machine, then run `npm install` to install all
-node dependencies.
+Clone this repository to your machine. To install node dependencies run
+```
+$ npm install
+```
 
 Next make a copy of `config.sample.json` and save it as `config.json`.
 
@@ -71,7 +73,7 @@ upload files, so we need to request `write` permissions from the API.
 To do this simply run
 
 ```
-node app-setup
+$ node app-setup
 ```
 
 This will launch your browser and go to strava to request authorization for
@@ -89,7 +91,7 @@ That's it, you're authorized to upload to Strava.
 ### Running GSA
 To run GSA just
 ```
-node app
+$ node app
 ```
 If your Garmin is already plugged in, it will be detected, otherwise, plug it in
 and wait for the browser to open with your activity!
