@@ -16,7 +16,7 @@ prompt.get(['code'], function(err, result){
       // console.log(payload);
       if(payload.access_token !== null) {
         config.env.STRAVA_ACCESS_TOKEN = payload.access_token;
-        fs.writeFile('config-test.json', JSON.stringify(config, null, 2), function(err) {
+        fs.writeFile('config.json', JSON.stringify(config, null, 2), function(err) {
           if(err!==null){
             console.log(err);
             return;
