@@ -73,7 +73,7 @@ upload files, so we need to request `write` permissions from the API.
 To do this simply run
 
 ```
-$ node app-setup
+$ node setup
 ```
 
 This will launch your browser and go to strava to request authorization for

@@ -26,7 +26,7 @@ var garminStravaAutomator = (function(){
   };
 
   var onDeviceInserted = function(device){
-    if(device.deviceDescriptor.idVendor == config.garmin.idVendor) {
+    if(device.deviceDescriptor.idVendor === config.garmin.idVendor) {
       console.log('Garmin detected.'.bold.yellow);
 
       if(platform === os.DARWIN) {
@@ -82,7 +82,7 @@ var garminStravaAutomator = (function(){
           console.log("Activity processed, opening:".yellow, url.yellow);
         }
       };
-      
+
       strava.uploads.post({
         data_type: ext,
         file: activityPath + file,
