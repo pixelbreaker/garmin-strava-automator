@@ -27,6 +27,5 @@ build/Release
 node_modules
 **/.DS_Store
 .imdone
-config.json
 node_modules/
 config.json
