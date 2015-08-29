@@ -58,7 +58,6 @@ var garminStravaAutomator = (function(){
 
   var volumeIsMounted = function(volumePath) {
     progress.finish();
-    // #TODO:10 Find activities and start uploading
     console.log("Volume is mounted at:", volumePath);
 
     var activityPath = volumePath + config.garmin.activityPath;
