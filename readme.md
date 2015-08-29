@@ -1,7 +1,10 @@
 Garmin Strava Automator
 =======================
 
-### What is it?
+***Automatic Garmin uploads to Strava, plus automatic archiving***
+
+Somewhat insprired by @thegingerbloke 's [Pi Python Garmin Strava](https://github.com/thegingerbloke/pi-python-garmin-strava).
+
 Garmin Strava Automator [GSA] takes the pain out of uploading your activities
 after a long ride or run. Get home, plug your Garmin device into your Mac (Window support soon...) and GSA uploads the activity to Strava, and
 backs up your activity files from your Garmin to your chosen location (I

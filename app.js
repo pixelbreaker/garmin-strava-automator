@@ -73,7 +73,6 @@ var garminStravaAutomator = (function(){
       console.log('Uploading file:'.yellow, file);
 
       var statusCallback = function(err,payload) {
-
         if(payload.error !== null) {
           console.log("statusCallback:\n",payload);
         }
@@ -83,6 +82,7 @@ var garminStravaAutomator = (function(){
           console.log("Activity processed, opening:".yellow, url.yellow);
         }
       };
+      
       strava.uploads.post({
         data_type: ext,
         file: activityPath + file,
