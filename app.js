@@ -17,7 +17,7 @@ var strava = require('strava-v3');
 var garminStravaAutomator = (function(){
   var checkVolumeInterval;
   var osxDiskutilCmd = 'diskutil list -plist';
-  var osxRSync = 'rsync -aviuP {src} {dest} --remove-source-files --dry-run';
+  var osxRSync = 'rsync -aviuP {src} {dest} --remove-source-files';// --dry-run
   var progress = new Progress();
 
   var os = {
