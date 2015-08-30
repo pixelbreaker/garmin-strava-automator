@@ -7,7 +7,7 @@ var monitor = require('node-usb-detection');
 var open = require('open');
 var platform = require('os').platform();
 var plist = require('plist');
-var Progress = require('node-progress').get();
+var Spinner = require('cli-spinner').Spinner;
 _.extend(process.env, config.env);
 
 // Must initialise after extending the 'process.env' object with
@@ -15,10 +15,9 @@ _.extend(process.env, config.env);
 var strava = require('strava-v3');
 
 var garminStravaAutomator = (function(){
-  var checkVolumeInterval;
+  var checkVolumeInterval, spinner;
   var osxDiskutilCmd = 'diskutil list -plist';
   var osxRSync = 'rsync -aviuP {src} {dest} --remove-source-files';// --dry-run
-  var progress = new Progress();
 
   var os = {
     DARWIN: 'darwin',
@@ -31,8 +30,8 @@ var garminStravaAutomator = (function(){
 
       if(platform === os.DARWIN) {
         var volume;
-        progress.setProgressMessage('Waiting for volume to mount');
-        progress.start();
+        spinner = new Spinner('Waiting for volume to mount');
+        spinner.start();
         checkVolumeInterval = setInterval(checkVolumeIsMounted, 500);
       }else if(platform === os.WIN) {
         // #TODO:20 handle volume mount delay in windows...
@@ -57,22 +56,26 @@ var garminStravaAutomator = (function(){
   };
 
   var volumeIsMounted = function(volumePath) {
-    progress.finish();
+    spinner.stop();
     console.log("Volume is mounted at:", volumePath);
 
     var activityPath = volumePath + config.garmin.activityPath;
     var activities = fs.readdirSync(activityPath);
     var files = _.filter(activities, function(fn){
-      return /(.fit|.gpx|.tcx)$/.test(fn);
+      return /^[^\.].+(.fit|.gpx|.tcx)$/.test(fn);
     });
     var fileCount = files.length;
-    progress.setProgressMessage('Uploading');
-    progress.start();
+    spinner = new Spinner('Uploading activities');
+    spinner.start();
     _.forEach(files, function(file){
       var ext = file.match(/(?!\.)([0-9a-z]){3}$/i)[0];
       console.log('Uploading file:'.yellow, file);
 
       var statusCallback = function(err,payload) {
+        if(err!==null){
+          console.log(err);
+          return;
+        }
         if(payload.error !== null) {
           console.log("statusCallback:\n",payload);
         }
@@ -95,7 +98,7 @@ var garminStravaAutomator = (function(){
         }
         if(--fileCount === 0){
           uploadComplete(volumePath);
-          progress.finish();
+          spinner.stop();
         }
       });
     });
@@ -122,6 +125,8 @@ var garminStravaAutomator = (function(){
     init: function(){
       monitor.add(onDeviceInserted);
       console.log('Listening for Garmin USB devices.'.bold.yellow);
+      spinner = new Spinner('Checking for mounted devices');
+      spinner.start();
       checkVolumeIsMounted();
     }
   };

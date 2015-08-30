@@ -10,13 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-usb-detection": "^1.0.2",
-    "plist": "~1.1.0",
-    "lodash": "~3.10.1",
-    "strava-v3": "^1.8.0",
-    "node-progress": "~0.1.0",
+    "cli-spinner": "~0.2.1",
     "colors": "~1.1.2",
+    "lodash": "~3.10.1",
+    "node-usb-detection": "^1.0.2",
     "open": "0.0.5",
-    "prompt": "~0.2.14"
+    "plist": "~1.1.0",
+    "prompt": "~0.2.14",
+    "strava-v3": "^1.8.0",
   }
 }
