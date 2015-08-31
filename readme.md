@@ -96,4 +96,14 @@ $ node app
 If your Garmin is already plugged in, it will be detected, otherwise, plug it in
 and wait for the browser to open with your activity!
 
-If you want to run if in the background, all the time...
+### Running as a Daemon
+Use [forever js](https://github.com/foreverjs/forever) to run this as a daemon.
+Make sure forever is installed
+```
+$ npm install forever -g
+```
+
+Then run forever with the supplied config file.
+```
+$ forever start forever.json
+```
