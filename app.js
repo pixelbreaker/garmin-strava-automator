@@ -46,7 +46,10 @@ var garminStravaAutomator = (function(){
         disks.AllDisksAndPartitions,
         _.matchesProperty('VolumeName', config.garmin.volumeName)
       );
-      if(volume !== undefined && volume.MountPoint !== undefined) {
+      if(volume===undefined) {
+        spinner.stop(true);
+        return;
+      }else if(volume.MountPoint !== undefined) {
         volumeIsMounted(volume.MountPoint);
         if(checkVolumeInterval !== undefined) {
           clearInterval(checkVolumeInterval);
@@ -56,7 +59,7 @@ var garminStravaAutomator = (function(){
   };
 
   var volumeIsMounted = function(volumePath) {
-    spinner.stop();
+    spinner.stop(true);
     console.log("Volume is mounted at:", volumePath);
 
     var activityPath = volumePath + config.garmin.activityPath;
@@ -98,7 +101,7 @@ var garminStravaAutomator = (function(){
         }
         if(--fileCount === 0){
           uploadComplete(volumePath);
-          spinner.stop();
+          spinner.stop(true);
         }
       });
     });
