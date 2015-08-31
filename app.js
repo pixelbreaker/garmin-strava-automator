@@ -65,7 +65,7 @@ var garminStravaAutomator = (function(){
     var activityPath = volumePath + config.garmin.activityPath;
     var activities = fs.readdirSync(activityPath);
     var files = _.filter(activities, function(fn){
-      return /^[^\.].+(.fit|.gpx|.tcx)$/.test(fn);
+      return /^[^\.].+\.(fit|gpx|tcx)$/.test(fn);
     });
     var fileCount = files.length;
     spinner = new Spinner('Uploading activities');
