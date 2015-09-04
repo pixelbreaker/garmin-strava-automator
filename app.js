@@ -33,7 +33,7 @@ var garminStravaAutomator = (function(){
         spinner = new Spinner('Waiting for volume to mount');
         spinner.start();
         checkVolumeInterval = setInterval(checkVolumeIsMounted, 500);
-      }else if(platform === os.WIN) {
+      } else if(platform === os.WIN) {
         // #TODO:20 handle volume mount delay in windows...
       }
     }
@@ -46,10 +46,10 @@ var garminStravaAutomator = (function(){
         disks.AllDisksAndPartitions,
         _.matchesProperty('VolumeName', config.garmin.volumeName)
       );
-      if(volume===undefined) {
+      if(volume === undefined) {
         spinner.stop(true);
         return;
-      }else if(volume.MountPoint !== undefined) {
+      } else if(volume.MountPoint !== undefined) {
         volumeIsMounted(volume.MountPoint);
         if(checkVolumeInterval !== undefined) {
           clearInterval(checkVolumeInterval);
@@ -75,7 +75,7 @@ var garminStravaAutomator = (function(){
       console.log('Uploading file:'.yellow, file);
 
       var statusCallback = function(err,payload) {
-        if(err!==null){
+        if(err !== null){
           console.log(err);
           return;
         }
@@ -94,8 +94,9 @@ var garminStravaAutomator = (function(){
         file: activityPath + file,
         statusCallback: _.debounce(statusCallback, 5000)
       },function(err,payload) {
-        if(err!==null){
+        if(err !== null){
           console.log('error:\n',err);
+          return;
         } else {
           console.log('complete:\n',payload);
         }
