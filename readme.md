@@ -14,7 +14,13 @@ backs up your activity files from your Garmin to your chosen location (I
   limited memory.
 
 ### Installation
-Clone this repository to your machine. To install node dependencies run
+To install this package using bower run:
+```
+bower install garmin-strava-automator
+```
+Alternatively clone this repository.
+
+To install node dependencies run
 ```
 $ npm install
 ```
