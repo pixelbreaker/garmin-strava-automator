@@ -1,6 +1,6 @@
 {
   "name": "garmin-strava-automator",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "",
   "repository": "https://github.com/pixelbreaker/garmin-strava-automator.git",
   "main": "app.js",
