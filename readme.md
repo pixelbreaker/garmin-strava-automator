@@ -14,16 +14,14 @@ backs up your activity files from your Garmin to your chosen location (I
   limited memory.
 
 ### Installation
-To install this package using bower run:
+To install this package using npm run:
 ```
-bower install garmin-strava-automator
+npm install garmin-strava-automator
 ```
 Alternatively clone this repository.
 
-To install node dependencies run
-```
-$ npm install
-```
+Currently not working on node 4.0.0 as the `usb` dependency of `node-usb-detection`
+has some issues with 4.0.0.
 
 Next make a copy of `config.sample.json` and save it as `config.json`.
 
