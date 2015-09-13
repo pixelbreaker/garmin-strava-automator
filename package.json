@@ -1,6 +1,6 @@
 {
   "name": "garmin-strava-automator",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Automate uploads from Garmin GPS devices to your Strava account",
   "repository": "https://github.com/pixelbreaker/garmin-strava-automator.git",
   "main": "app.js",
